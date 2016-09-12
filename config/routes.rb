@@ -1,4 +1,50 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+
+  get 'contacts/create'
+
+  get 'about/index'
+
+  namespace :admin do
+    get 'sessions/new'
+  end
+
+  namespace :admin do
+    get 'sessions/create'
+  end
+
+  namespace :admin do
+    get 'users/new'
+  end
+
+  namespace :admin do
+    get 'users/create'
+  end
+
+  namespace :admin do
+    get 'users/edit'
+  end
+
+  namespace :admin do
+    get 'users/update'
+  end
+
+  namespace :admin do
+    get 'users/destroy'
+  end
+
+  namespace :admin do
+    get 'users/index'
+  end
+
+  namespace :admin do
+    get 'users/show'
+  end
+
+  namespace :admin do
+    get 'comments/destroy'
+  end
+
   get 'comments/new'
 
   namespace :admin do
