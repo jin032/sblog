@@ -30,6 +30,10 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'simple_form'
 gem 'mail_form'
+gem 'will_paginate'
+gem "paperclip"
+gem "wysiwyg-rails"
+gem "font-awesome-rails"
 
 
 # Use Capistrano for deployment

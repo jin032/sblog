@@ -1,54 +1,23 @@
-<div class="row">
-<div class="col-md-6">
-<div class="post">
-  <img src="img/rails.jpg" >
-  <div class="post-contant">
-    <h3>lorem proum</h3>
-    <small> Posted by Brad on october 24, 2016</small>
-    <p>The navbar collapses into its vertical mobile view when the viewport is narrower than @grid-float-breakpoint, and expands into its horizontal non-mobile view when the viewport is at least @grid-float-breakpoint in width. Adjust this variable in the Less source to control when the navbar collapses/expands. The default value is 768px (the smallest "small" or "tablet" screen).</p>
-     <a class="btn btn-primary btn-block">Read More</a>
+<div id="post-index">
+  <% if @posts.exists? %>
+  <%  @posts.each_slice(2) do |post| %>
+  <div class="row">
+    <%  post.each do |post| %>
+    <div class="col-md-6">
+      <div class="post">
+       <%= image_tag post.image.url, width:'100%' %>
+        <div class="post-content">
+          <h3><%= post.title %></h3>
+          <small>Posted By <%= post.user.name %> on <%= post.created_at %></small>
+          <%= raw post.body.truncate(200) %>
+          <%= link_to "Read More", post_path(post), class:'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
-
-</div>
-</div>
-<div class="col-md-6">
-<div class="post">
-  <img src="img/rails.jpg" >
-  <div class="post-contant">
-    <h3>lorem proum</h3>
-    <small> Posted by Brad on october 24, 2016</small>
-    <p>The navbar collapses into its vertical mobile view when the viewport is narrower than @grid-float-breakpoint, and expands into its horizontal non-mobile view when the viewport is at least @grid-float-breakpoint in width. Adjust this variable in the Less source to control when the navbar collapses/expands. The default value is 768px (the smallest "small" or "tablet" screen).</p>
-     <a class="btn btn-primary btn-block">Read More</a>
-  </div>
-
-</div>
-
-</div>
-</div>
-
-<div class="row">
-<div class="col-md-6">
-<div class="post">
-  <img src="img/rails.jpg" >
-  <div class="post-contant">
-    <h3>lorem proum</h3>
-    <small> Posted by Brad on october 24, 2016</small>
-    <p>The navbar collapses into its vertical mobile view when the viewport is narrower than @grid-float-breakpoint, and expands into its horizontal non-mobile view when the viewport is at least @grid-float-breakpoint in width. Adjust this variable in the Less source to control when the navbar collapses/expands. The default value is 768px (the smallest "small" or "tablet" screen).</p>
-     <a class="btn btn-primary btn-block">Read More</a>
-  </div>
-
-</div>
-</div>
-<div class="col-md-6">
-<div class="post">
-  <img src="img/rails.jpg" >
-  <div class="post-contant">
-    <h3>lorem proum</h3>
-    <small> Posted by Brad on october 24, 2016</small>
-    <p>The navbar collapses into its vertical mobile view when the viewport is narrower than @grid-float-breakpoint, and expands into its horizontal non-mobile view when the viewport is at least @grid-float-breakpoint in width. Adjust this variable in the Less source to control when the navbar collapses/expands. The default value is 768px (the smallest "small" or "tablet" screen).</p>
-     <a class="btn btn-primary btn-block">Read More</a>
-  </div>
-
-</div>
-</div>
+  <% end %>
+  <% else %>
+  <p>No post yet.</p>
+  <% end %>
 </div>
